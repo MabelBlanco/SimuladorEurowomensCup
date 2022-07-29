@@ -5,6 +5,24 @@
     "version": "0.2.0",
     "configurations": [
     {
+        "name": "Match Function",
+        "program": "${workspaceFolder}/matchfunction.js",
+        "request": "launch",
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
+        "name": "Fase de grupos",
+        "program": "${workspaceFolder}/fasedegrupos.js",
+        "request": "launch",
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
         "name": "Teams",
         "program": "${workspaceFolder}/teams.js",
         "request": "launch",
