@@ -1,9 +1,8 @@
-import { groupATeams, groupBTeams, groupCTeams, groupDTeams } from "./fasedegrupos.js"
 
 //Con esta funcion creamos el tablero digamos, es decir, el número
 // de jornadas, de partidos por jornada y la plantilla para colocar
 // el nombre de los equipos en local o visitante.
-function schedule (arrayTeams) {
+export function schedule (arrayTeams) {
     const matches = []
     const numberofMatchDays = arrayTeams.length - 1
     const numberofMatchesforMatchDay = arrayTeams.length / 2
@@ -23,7 +22,7 @@ function schedule (arrayTeams) {
 // Con esta funcion añadiremos a la plantilla de partidos,
 // los nombres de los equipos que jugarán en local.
 // Cogeremos todos los nombres menos el último
-function addLocalTeams (arrayTeams, matches) {
+export function addLocalTeams (arrayTeams, matches) {
     //Primero nos quedamos solo con el nombre de los equipos
     const teamNames = []
     arrayTeams.map (team => teamNames.push (team.name))
@@ -47,7 +46,7 @@ function addLocalTeams (arrayTeams, matches) {
 // Con esta funcion añadiremos a la plantilla de partidos,
 // los nombres de los equipos que jugarán en visitante.
 
-function addAwayTeams (arrayTeams, matches) {
+export function addAwayTeams (arrayTeams, matches) {
 
     //Primero nos quedamos solo con el nombre de los equipos
     const teamNames = []
@@ -69,15 +68,19 @@ function addAwayTeams (arrayTeams, matches) {
             }
         })
     })
+    // Como el último equipo juega siempre de visitante,
+    // vamos a arreglarlo intercambiando posiciones
+    matches.forEach((matchDay, indexMatchDay) => {
+        matchDay.forEach ((match, matchIndex) => {
+            if (matchIndex === 0 & indexMatchDay % 2 === 0) {
+                const exchangeHome = match.home
+                match.home = match.away
+                match.away = exchangeHome
+            }
+        })
+    })
     
 }
 
-// Jornadas de partidos para el grupo A
-const matchesGroupA = schedule(groupATeams)
-addLocalTeams (groupATeams, matchesGroupA)
-addAwayTeams (groupATeams, matchesGroupA)
-
-// Ahora mismo para acceder a cada partido debe ser con un doble índice
-console.log (matchesGroupA[0][0])
 
 
