@@ -41,6 +41,7 @@ Esta era la parte obligatoria.
 Trataba de jugar los cuartos, semifinal y final (y opcionalmente el tercer y cuarto puesto) de la Liga. 
 
 Debía comenzar con un mensaje que indicase el comienzo de los partidos y mostrando los equipos seleccionados para jugar:
+
 <img src="imagenes_de_muestra/playOffsTituloYEquipos.jpg" alt="Titulo y equipos de la fase de PlayOffs" width="500">
 
 Después comenzaban los partidos (también se debía mostrar el mensaje de cada fase). Se debía indicar que 2 equipos se enfrentaban, el número de goles marcado por cada uno de ellos y finalmente, cual era el ganador.
@@ -65,7 +66,7 @@ Debía comenzar indicando los equipos que jugarían esta fase. Estos equipos se 
 
 Después se indica la planificación de los partidos que se van a jugar. Esta planificación se genera basándonos en un algoritmo de todos contra todos en el que cada equipo juega un partido al día y todos se llegan a enfrentar contra todos al finalizar la fase.
 
-<img src="imagenes_de_muestra/gruposPresentacion.jpg" alt="Presentacion de la fase de grupos" width="300">
+<img src="imagenes_de_muestra/gruposPresentacion.jpg" alt="Presentacion de la fase de grupos" width="200">
 
 Una vez presentados, comenzaríamos con los partidos. 
 
@@ -79,7 +80,7 @@ También se solicitaba que se ordenasen los equipos cada jornada por puntuación
 
 Después se debía mostrar esta clasificación.
 
-<img src="imagenes_de_muestra/gruposPartidos.jpg" alt="Partidos de la fase de grupos" width="300">
+<img src="imagenes_de_muestra/gruposPartidos.jpg" alt="Partidos de la fase de grupos" width="500">
 
 Finalmente, se seleccionarán los 2 primeros equipos de cada grupo para jugar la fase final  o PlayOff (la fase anteriormente descrita).
 
