@@ -2,6 +2,7 @@ import { arrayTeams} from "./teams.js"
 import { schedule, addLocalTeams, addAwayTeams } from "./matchfunction.js"
 import { goalsMatchGroupStage } from "./goalsFunction.js"
 import { upResults } from "./stadisticsfunction.js"
+import { sortTeamsByScore } from "./sortfunction.js"
 
 // Divido los equipos por grupos
 const groupATeams = [...arrayTeams.filter (e => e.group === "A")]
@@ -41,6 +42,8 @@ console.log (`\nGRUPO A`)
 console.log (`-------`)
 groupATeams.forEach (team => console.log (team.name))
 
+console.log (``)
+
 matchesGroupA.forEach((matchDay, indexMatchDay) => {
     console.log (`Día ${indexMatchDay+1}:`)
     matchDay.forEach(match => {
@@ -51,6 +54,8 @@ matchesGroupA.forEach((matchDay, indexMatchDay) => {
 console.log (`\nGRUPO B`)
 console.log (`-------`)
 groupBTeams.forEach (team => console.log (team.name))
+
+console.log (``)
 
 matchesGroupB.forEach((matchDay, indexMatchDay) => {
     console.log (`Día ${indexMatchDay+1}:`)
@@ -63,6 +68,8 @@ console.log (`\nGRUPO C`)
 console.log (`-------`)
 groupCTeams.forEach (team => console.log (team.name))
 
+console.log (``)
+
 matchesGroupC.forEach((matchDay, indexMatchDay) => {
     console.log (`Día ${indexMatchDay+1}:`)
     matchDay.forEach(match => {
@@ -73,6 +80,8 @@ matchesGroupC.forEach((matchDay, indexMatchDay) => {
 console.log (`\nGRUPO D`)
 console.log (`-------`)
 groupDTeams.forEach (team => console.log (team.name))
+
+console.log (``)
 
 matchesGroupD.forEach((matchDay, indexMatchDay) => {
     console.log (`Día ${indexMatchDay+1}:`)
@@ -98,6 +107,10 @@ const match1Day1GroupA = goalsMatchGroupStage (matchesGroupA[0][0].home, matches
 upResults (groupATeams, match1Day1GroupA)
 const match2Day1GroupA = goalsMatchGroupStage (matchesGroupA[0][1].home, matchesGroupA[0][1].away)
 upResults (groupATeams, match2Day1GroupA)
+
+//Ordenamos la clasificación
+sortTeamsByScore (groupATeams)
+
 //Imprimimos la tabla con los equipos actualizados y filtramos las propiedades que queremos ver
 console.table ((groupATeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
@@ -109,6 +122,8 @@ upResults (groupBTeams, match1Day1GroupB)
 const match2Day1GroupB = goalsMatchGroupStage (matchesGroupB[0][1].home, matchesGroupB[0][1].away)
 upResults (groupBTeams, match2Day1GroupB)
 
+sortTeamsByScore (groupBTeams)
+
 console.table ((groupBTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 console.log (`Día 1 - GRUPO C`)
@@ -118,6 +133,8 @@ const match1Day1GroupC = goalsMatchGroupStage (matchesGroupC[0][0].home, matches
 upResults (groupCTeams, match1Day1GroupC)
 const match2Day1GroupC = goalsMatchGroupStage (matchesGroupC[0][1].home, matchesGroupC[0][1].away)
 upResults (groupCTeams, match2Day1GroupC)
+
+sortTeamsByScore (groupCTeams)
 
 console.table ((groupCTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
@@ -129,6 +146,8 @@ upResults (groupDTeams, match1Day1GroupD)
 const match2Day1GroupD = goalsMatchGroupStage (matchesGroupD[0][1].home, matchesGroupD[0][1].away)
 upResults (groupDTeams, match2Day1GroupD)
 
+sortTeamsByScore (groupDTeams)
+
 console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 //------------------------------------------------------------------------------------------------------
@@ -137,13 +156,14 @@ console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "go
 console.log (`Día 2 - GRUPO A`)
 console.log (`---------------`)
 
-//Jugamos el partido y guardamos el resultado en match1Day1GroupA
 const match1Day2GroupA = goalsMatchGroupStage (matchesGroupA[1][0].home, matchesGroupA[1][0].away)
-//Actualizamos a los equipos con los resultados
+
 upResults (groupATeams, match1Day2GroupA)
 const match2Day2GroupA = goalsMatchGroupStage (matchesGroupA[1][1].home, matchesGroupA[1][1].away)
 upResults (groupATeams, match2Day2GroupA)
-//Imprimimos la tabla con los equipos actualizados y filtramos las propiedades que queremos ver
+
+sortTeamsByScore (groupATeams)
+
 console.table ((groupATeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 console.log (`Día 2 - GRUPO B`)
@@ -153,6 +173,8 @@ const match1Day2GroupB = goalsMatchGroupStage (matchesGroupB[1][0].home, matches
 upResults (groupBTeams, match1Day2GroupB)
 const match2Day2GroupB = goalsMatchGroupStage (matchesGroupB[1][1].home, matchesGroupB[1][1].away)
 upResults (groupBTeams, match2Day2GroupB)
+
+sortTeamsByScore (groupBTeams)
 
 console.table ((groupBTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
@@ -164,6 +186,8 @@ upResults (groupCTeams, match1Day2GroupC)
 const match2Day2GroupC = goalsMatchGroupStage (matchesGroupC[1][1].home, matchesGroupC[1][1].away)
 upResults (groupCTeams, match2Day2GroupC)
 
+sortTeamsByScore (groupCTeams)
+
 console.table ((groupCTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 console.log (`Día 2 - GRUPO D`)
@@ -174,6 +198,8 @@ upResults (groupDTeams, match1Day2GroupD)
 const match2Day2GroupD = goalsMatchGroupStage (matchesGroupD[1][1].home, matchesGroupD[1][1].away)
 upResults (groupDTeams, match2Day2GroupD)
 
+sortTeamsByScore (groupDTeams)
+
 console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 //--------------------------------------------------------------------------------------------------------------
@@ -182,13 +208,15 @@ console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "go
 console.log (`Día 3 - GRUPO A`)
 console.log (`---------------`)
 
-//Jugamos el partido y guardamos el resultado en match1Day1GroupA
+
 const match1Day3GroupA = goalsMatchGroupStage (matchesGroupA[2][0].home, matchesGroupA[2][0].away)
-//Actualizamos a los equipos con los resultados
+
 upResults (groupATeams, match1Day3GroupA)
 const match2Day3GroupA = goalsMatchGroupStage (matchesGroupA[2][1].home, matchesGroupA[2][1].away)
 upResults (groupATeams, match2Day3GroupA)
-//Imprimimos la tabla con los equipos actualizados y filtramos las propiedades que queremos ver
+
+sortTeamsByScore (groupATeams)
+
 console.table ((groupATeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 console.log (`Día 3 - GRUPO B`)
@@ -198,6 +226,8 @@ const match1Day3GroupB = goalsMatchGroupStage (matchesGroupB[2][0].home, matches
 upResults (groupBTeams, match1Day3GroupB)
 const match2Day3GroupB = goalsMatchGroupStage (matchesGroupB[2][1].home, matchesGroupB[2][1].away)
 upResults (groupBTeams, match2Day3GroupB)
+
+sortTeamsByScore (groupBTeams)
 
 console.table ((groupBTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
@@ -209,6 +239,8 @@ upResults (groupCTeams, match1Day3GroupC)
 const match2Day3GroupC = goalsMatchGroupStage (matchesGroupC[2][1].home, matchesGroupC[2][1].away)
 upResults (groupCTeams, match2Day3GroupC)
 
+sortTeamsByScore (groupCTeams)
+
 console.table ((groupCTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
 
 console.log (`Día 3 - GRUPO D`)
@@ -219,49 +251,18 @@ upResults (groupDTeams, match1Day3GroupD)
 const match2Day3GroupD = goalsMatchGroupStage (matchesGroupD[2][1].home, matchesGroupD[2][1].away)
 upResults (groupDTeams, match2Day3GroupD)
 
-console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
-
-//-----------------------------------------------------------------------------------------------------------------------
-// DÍA 4
-
-console.log (`Día 4 - GRUPO A`)
-console.log (`---------------`)
-
-//Jugamos el partido y guardamos el resultado en match1Day1GroupA
-const match1Day4GroupA = goalsMatchGroupStage (matchesGroupA[3][0].home, matchesGroupA[3][0].away)
-//Actualizamos a los equipos con los resultados
-upResults (groupATeams, match1Day4GroupA)
-const match2Day4GroupA = goalsMatchGroupStage (matchesGroupA[3][1].home, matchesGroupA[3][1].away)
-upResults (groupATeams, match2Day4GroupA)
-//Imprimimos la tabla con los equipos actualizados y filtramos las propiedades que queremos ver
-console.table ((groupATeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
-
-console.log (`Día 4 - GRUPO B`)
-console.log (`---------------`)
-
-const match1Day4GroupB = goalsMatchGroupStage (matchesGroupB[3][0].home, matchesGroupB[3][0].away)
-upResults (groupBTeams, match1Day4GroupB)
-const match2Day4GroupB = goalsMatchGroupStage (matchesGroupB[3][1].home, matchesGroupB[3][1].away)
-upResults (groupBTeams, match2Day4GroupB)
-
-console.table ((groupBTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
-
-console.log (`Día 4 - GRUPO C`)
-console.log (`---------------`)
-
-const match1Day4GroupC = goalsMatchGroupStage (matchesGroupC[3][0].home, matchesGroupC[3][0].away)
-upResults (groupCTeams, match1Day4GroupC)
-const match2Day4GroupC = goalsMatchGroupStage (matchesGroupC[3][1].home, matchesGroupC[3][1].away)
-upResults (groupCTeams, match2Day4GroupC)
-
-console.table ((groupCTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
-
-console.log (`Día 4 - GRUPO D`)
-console.log (`---------------`)
-
-const match1Day4GroupD = goalsMatchGroupStage (matchesGroupD[3][0].home, matchesGroupD[3][0].away)
-upResults (groupDTeams, match1Day4GroupD)
-const match2Day4GroupD = goalsMatchGroupStage (matchesGroupD[3][1].home, matchesGroupD[3][1].away)
-upResults (groupDTeams, match2Day4GroupD)
+sortTeamsByScore (groupDTeams)
 
 console.table ((groupDTeams), ["name", "points", "goalsFor", "goalsAgainst", "goalsDiff"])
+
+//------------------------------------------------------------------------------------------------------
+// UNA VEZ JUGADOS TODOS LOS PARTIDOS
+
+//Seleccionamos a los 2 primeros de cada grupo para los play-offs
+
+export const selectedTeams = [groupATeams [0], groupATeams [1], 
+groupBTeams [0], groupBTeams[1], 
+groupCTeams[0], groupCTeams[1], 
+groupDTeams[0], groupDTeams [1]
+]
+

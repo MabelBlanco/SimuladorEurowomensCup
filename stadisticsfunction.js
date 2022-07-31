@@ -44,15 +44,9 @@ export function upResults (arrayTeams, match) {
         loser.gamesLost += 1
         loser.goalsFor += match.goalsLoser
         loser.goalsAgainst += match.goalsWinner
-        loser.goalsDiff = winner.goalsFor - winner.goalsAgainst
+        loser.goalsDiff = loser.goalsFor - loser.goalsAgainst
     }
 
     return arrayTeamsUp
 }
 
-function showGroupStage (arrayTeams) {
-    const showArrayTeams = []
-    arrayTeams.forEach (team => {
-        let teamObject = {name : team.name, points : team.points, }
-    })
-}

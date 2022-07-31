@@ -23,7 +23,10 @@ export const arrayTeamsNames = ["Inglaterra", "Austria", "Noruega", "Irlanda del
 "Suecia", "Paises Bajos", "Suiza", "Portugal",
 "Francia", "Bélgica", "Islandia", "Italia"]
 
-//Aquí es donde añadiré todos los equipos de clase Teams para
+// Desordenamos equipos
+arrayTeamsNames.shuffle ()
+
+//Aquí es donde añadiré todos los equipos de clase Teams
 export const arrayTeams = []
 
 //Con este for creo para cada nombre de equipo introducido el objeto de clase Team
@@ -43,16 +46,5 @@ for (let i=0; i<arrayTeamsNames.length; i++){
         arrayTeams.push (newTeam)
     }
 }
-// Seleccionar 8 equipos de forma aleatoria
 
-// Desordenamos equipos
-arrayTeams.shuffle ()
-
-// Seleccionamos 2 equipos aleatorios de cada grupo
-export let selectedTeams = [
-    ...arrayTeams.filter (e => e.group === "A").slice (0,2),
-    ...arrayTeams.filter (e => e.group === "B").slice (0,2),
-    ...arrayTeams.filter (e => e.group === "C").slice (0,2),
-    ...arrayTeams.filter (e => e.group === "D").slice (0,2)
-]
 
