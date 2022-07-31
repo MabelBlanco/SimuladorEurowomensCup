@@ -4,9 +4,9 @@
 // todo lo que haya en el archivo fasedegrupos.js
 import {selectedTeams} from "./fasedegrupos.js"
 // En este caso solo hay funciones, por lo que no se imprime nada hasta que la funcion no es llamada
-import {goalsMatch} from "./goalsFunction.js"
-import { sortTeamsByScore } from "./sortfunction.js"
-import { upResults } from "./stadisticsfunction.js"
+import {goalsMatch} from "./functions/goalsFunction.js"
+import { sortTeamsByScore } from "./functions/sortfunction.js"
+import { upResults } from "./functions/stadisticsfunction.js"
 
 //Imprimo por pantalla el comienzo del PlayOff
 console.log ("----------------------------------------------------------------")

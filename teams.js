@@ -1,4 +1,4 @@
-import shuffle from "./shufflefunction.js"
+import shuffle from "./functions/shufflefunction.js"
 
 //Crearé un objeto para cada equipo con todas las metricas a 0, para ello utilizo la clase Teams
 export class Teams {

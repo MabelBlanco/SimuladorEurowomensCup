@@ -6,7 +6,7 @@
     "configurations": [
     {
         "name": "Match Function",
-        "program": "${workspaceFolder}/matchfunction.js",
+        "program": "${workspaceFolder}/functions/matchfunction.js",
         "request": "launch",
         "skipFiles": [
             "<node_internals>/**"

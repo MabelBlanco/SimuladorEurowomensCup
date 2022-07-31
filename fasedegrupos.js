@@ -1,8 +1,8 @@
 import { arrayTeams} from "./teams.js"
-import { schedule, addLocalTeams, addAwayTeams } from "./matchfunction.js"
-import { goalsMatchGroupStage } from "./goalsFunction.js"
-import { upResults } from "./stadisticsfunction.js"
-import { sortTeamsByScore } from "./sortfunction.js"
+import { schedule, addLocalTeams, addAwayTeams } from "./functions/matchfunction.js"
+import { goalsMatchGroupStage } from "./functions/goalsFunction.js"
+import { upResults } from "./functions/stadisticsfunction.js"
+import { sortTeamsByScore } from "./functions/sortfunction.js"
 
 // Divido los equipos por grupos
 const groupATeams = [...arrayTeams.filter (e => e.group === "A")]
